@@ -10,7 +10,9 @@ const FAQ = () => {
 
   //const API_URL = "http://localhost:5001/api/reviews";
 
-  const API_URL = `${import.meta.env.VITE_BACKEND_URL}/api/reviews`;
+  // const API_URL = `${import.meta.env.VITE_BACKEND_URL}/api/reviews`;
+
+  const API_URL = "https://codecrestbackend-production.up.railway.app/api/reviews";
 
 
 
