@@ -8,21 +8,37 @@ const FAQ = () => {
   const [review, setReview] = useState("");
   const [rating, setRating] = useState(0);
 
-  //const API_URL = "http://localhost:5001/api/reviews";
+  //const API_URL = "http://localhost:5001/api/reviews"; do not remove this line
 
   // const API_URL = `${import.meta.env.VITE_BACKEND_URL}/api/reviews`;
 
-  const API_URL = "https://codecrestbackend-production.up.railway.app/api/reviews";
+  // const API_URL = "https://codecrestbackend-production.up.railway.app/api/reviews";
+
+  // console.log("API_URL:", import.meta.env.VITE_BACKEND_URL);
 
 
+  // // 🔹 Fetch all reviews from backend on component mount
+  // useEffect(() => {
+  //   fetch(API_URL)
+  //     .then((res) => res.json())
+  //     .then((data) => setReviews(data))
+  //     .catch((error) => console.error("Error fetching reviews:", error));
+  // }, []);
 
-  // 🔹 Fetch all reviews from backend on component mount
-  useEffect(() => {
-    fetch(API_URL)
-      .then((res) => res.json())
-      .then((data) => setReviews(data))
-      .catch((error) => console.error("Error fetching reviews:", error));
-  }, []);
+// ✅ Use environment variable instead of hardcoding
+const API_URL = `${import.meta.env.VITE_BACKEND_URL}/api/reviews`;
+
+console.log("API_URL:", API_URL);
+
+// 🔹 Fetch all reviews from backend on component mount
+useEffect(() => {
+  fetch(API_URL)
+    .then((res) => res.json())
+    .then((data) => setReviews(data))
+    .catch((error) => console.error("Error fetching reviews:", error));
+}, []);
+
+
 
   // 🔹 Handle form submission
   const handleSubmit = async (e) => {
