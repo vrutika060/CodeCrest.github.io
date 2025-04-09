@@ -141,9 +141,16 @@ useEffect(() => {
 
                   {/* <p className="text-sm text-gray-500 mt-1">{item.date}</p> */}
 
-                  <p className="text-sm text-gray-500 mt-1">
+                  {/* <p className="text-sm text-gray-500 mt-1">
                      {item.createdAt ? new Date(item.createdAt).toLocaleString() : new Date().toLocaleString()}
-                  </p>
+                  </p> */}
+                    <p className="text-sm text-gray-500 mt-1">
+                      {item.createdAt
+                        ? new Date(item.createdAt).toUTCString()
+                        : "Date not available"}
+                    </p>
+
+                    
 
                 </div>
 
